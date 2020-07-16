@@ -1,0 +1,147 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{graphicx}%图片设置
+\usepackage{subfig}%多个子图
+\usepackage{caption}%注释设置
+\usepackage{float}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+
+\ifodd 1
+\newcommand{\rev}[1]{{\color{red}#1}} %revise of the text by hyf
+\newcommand{\revbo}[1]{{\color{magenta}#1}} % revise of the text by bo
+\newcommand{\com}[1]{\textbf{\color{blue} (COMMENT: #1)}} %comment of the text
+\else
+\newcommand{\rev}[1]{#1}
+\newcommand{\revbo}[1]{#1}
+\newcommand{\com}[1]{}
+\fi
+
+\begin{document}
+\section{Introduction}
+This document includes two appendixes of the paper called Balancing Hidden-node and Exposed-node Problems in Full-duplex Enabled CSMA Networks. Appendix A provides the proof of Theorem 1, and Appendix B provides the proof of Theorem 2. All the contents of this supplementary document are for reference only. If you have any questions or suggestions after reading, you are welcome to contact us by email. 
+
+\begin{appendices} 
+
+\section{Proof for Theorem 1} 
+\begin{theorem} \label{theorem_HNMCR}
+	The hidden-node mean contention region for a bidirectional FD link is given by 
+	\begin{align}
+	\label{V_HN_total} &{V_{HN}}{\rm{ = 2}}{V_{HN1}} + {\rm{2}}{V_{HN2}}, \\
+	\label{V_HN1} &{V_{HN1}} = \frac{2}{\pi }\int_{r_{cs}}^{{r_i} + d} {(\pi  - {\theta _2} - {\theta _3})} {\theta _1}rdr, \\
+	\label{V_HN2} &{V_{HN2}} = \int_{{\delta _1}}^d {\int_{{\theta _4} - {\theta _3}}^{\pi  - {\theta _4} + {\theta _3}} {(\frac{{{\varphi _1} + {\varphi _2} + {\varphi _3}}}{{2\pi }})} } rdrd\theta, 
+	\end{align}
+	where $\theta_1$ to $\theta_4$, $\varphi _1$ to $\varphi _3$ and $\delta _1$ are intermediate parameters, whose detailed expressions are
+	\begin{align*}
+	&{\theta _1} = \arccos (\frac{{{d^2} + {r^2} - r_i^2}}{{2dr}}), {\theta _2} = \arccos (\frac{{{r^2} + {r_i^2} - d^2}}{{2rr_i}}), \\
+	&{\theta _3} = \arccos (\frac{d}{{2{r_i}}}), {\theta _4} = \arccos (\frac{{{r^2} + {r_i}^2 - r_{cs}^2}}{{2r{r_i}}}), \\
+	% &{\theta _5} = \arccos (\frac{{2{r_i}^2 - {d^2}}}{{2{r_i}^2}}), {\theta _6} = \arccos (\frac{r}{{2{r_i}}}), \\
+	&{\varphi _1} = \arccos (\frac{{\delta _2^2 + {d^2} - r_i^2}}{{2{\delta _2}d}}), {\varphi _2} = \arccos (\frac{{\delta _2^2 + \delta _3^2 - {d^2}}}{{2{\delta _2}{\delta _3}}}), \\
+	&{\varphi _3} = \arccos (\frac{{\delta _3^2 + {d^2} - r_i^2}}{{2{\delta _3}d}}),\\
+	&{\delta _1} = \sqrt {r_{cs}^2 - \frac{{{d^2}}}{4}}  - \sqrt {{r_i}^2 - \frac{{{d^2}}}{4}},\\
+	&{\delta _2} = \sqrt {{r^2} + r_i^2 + 2r{r_i}\cos (\theta  - {\theta _3})},\\
+	&{\delta _3} = \sqrt {{r^2} + r_i^2 - 2r{r_i}\cos (\theta  + {\theta _3})}.
+	\end{align*} 
+\end{theorem}
+
+\begin{figure}[htbp] 
+\centering   
+\subfloat[The left-hand side HN region in case 1.]
+{
+	\centering          
+	\includegraphics[width=0.32\textwidth]{proof_MCRa.pdf}   
+}
+
+\subfloat[The overlaying HN region of left-hand side HN region and right-hand side HN region.]
+{
+	\centering      
+	\includegraphics[width=0.32\textwidth]{proof_MCRb.pdf}   
+}
+
+\subfloat[The upper side HN region in case 2.]
+{
+	\centering      
+	\includegraphics[width=0.32\textwidth]{proof_MCRc.pdf}  
+}
+\caption{Different cases in the HN region.}
+\label{proof_MCR}
+\end{figure}
+
+\begin{proof}
+We divide the hidden-node (HN) region into four regions, the left-hand side (LHS) HN region, the right-hand side (RHS) HN region, the upper side HN region and the lower side HN region. According to the symmetry principle, the value of the RHS HN region is similar to that of the LHS HN region, and the value of the lower side HN region is same as that of the upper side HN region. Therefore, we only consider two cases to calculate the HN region around a bidirectional FD link $l_i$.
+
+\emph{Case 1}: Consider the transmitter $T_j$ locates in the LHS HN region denoted by $A_{H1}$ as shown in Fig. \ref{proof_MCR} (a). If the associated receiver $R_j$ lies within the bicircle interference region of $l_i$ (green arc), the hidden-node problem will occur. Otherwise, $l_j$ is not interfered by $l_i$. Since $R_j$ is randomly distributed around $T_j$ with a distance $d$, the probability of $R_j$ lying within the bicircle interference region is the ratio of $2\theta_1$ to $2\pi$. Clearly, the probability $p(X)$ depends on the location of $T_j$. Thus, we integrate the probability throughout the $A_{H1}$ region to obtain the hidden-node mean contention region ($V_{HN1}$ in Theorem 1). The symmetric HN region at the right-hand side can be calculated in the same way.
+
+In Fig. \ref{proof_MCR}, we observe an overlaying HN region where $T_j$ lies both the LHS HN region and the RHS HN region, and the position of $R_j$ (green arc) is discontinuous. Therefore, the overlaying HN region needs special consideration. For the LHS HN region, we only consider $R_j$ is located within $T_i$'s interference region; and similarly the RHS HN region for $R_i$'s interference region.
+
+\emph{Case 2}: Consider the transmitter $T_j$ lying in the upper HN region denoted by $A_{H2}$ in Fig. \ref{proof_MCR} (c). The associated receiver $R_j$ may locate within both $T_i$ and $R_i$'s interference region. This is different from case 1 as the potential location of $R_j$ is continuous, which corresponds to $V_{HN2}$. The symmetric lower side HN region can be calculated in the same way.
+
+\end{proof}	
+
+
+\section{Proof for Theorem 2} 
+
+\begin{theorem}\label{theorem_ENMRR}
+	The exposed-node mean reuse region for a bidirectional FD link is given by
+	\begin{align}
+	\label{V_EN_total} &{V_{EN}}{\rm{ = 2}}{V_{EN1}} + {\rm{2}}{V_{EN2}}+ {\rm{2}}{V_{EN3}},\\
+	\label{V_EN1} &{V_{EN1}} = \frac{2}{\pi }\int_{{r_i}}^{r_{cs}} {(\pi  - {\theta _2} - {\theta _3})}  \cdot (\pi  - {\theta _1})rdr, \\
+	\label{V_EN2} &{V_{EN2}} = \int_0^{{\delta _1}} {\int_{\frac{{2{\theta _6} + {\theta _5} - \pi }}{2}}^{\frac{{3\pi  - 2{\theta _6} - {\theta _5}}}{2}} {(1 - \frac{{{\varphi _1} + {\varphi _2} + {\varphi _3}}}{{2\pi }})} } rdrd\theta, \\
+	\label{V_EN3} &{V_{EN3}} = 2\int_{{\delta _1}}^d {\int_{\frac{{2{\theta _6} + {\theta _5} - \pi }}{2}}^{{\theta _4} - {\theta _3}} {(1 - \frac{{{\varphi _1} + {\varphi _2} + {\varphi _3}}}{{2\pi }})} } rdrd\theta,
+	\end{align}
+	where $\theta_1$ to $\theta_4$, $\varphi _1$ to $\varphi _3$ and $\delta _1$ are provided in Theorem \ref{theorem_HNMCR}; $\theta_5$ and $\theta_6$ are given by
+	\begin{align*}
+	&{\theta _5} = \arccos (\frac{{2{r_i}^2 - {d^2}}}{{2{r_i}^2}}), {\theta _6} = \arccos (\frac{r}{{2{r_i}}}). \\
+	\end{align*}
+\end{theorem} 
+
+\begin{figure}[htbp] 
+\centering   
+\subfloat[The left-hand side EN region in case 1.]
+{
+	\centering          
+	\includegraphics[width=0.32\textwidth]{proof_MRRa.pdf}   
+}
+
+\subfloat[The continuous upper side EN region in case 2.]
+{
+	\centering      
+	\includegraphics[width=0.32\textwidth]{proof_MRRb.pdf}   
+}
+
+\subfloat[The discontinuous upper side EN region in case 3.]
+{
+	\centering      
+	\includegraphics[width=0.32\textwidth]{proof_MRRc.pdf}  
+}
+
+\caption{Different cases in the EN region.}
+\label{proof_MRR}
+\end{figure}
+
+
+\begin{proof}
+We divide the exposed-node (EN) region into six regions, the LHS EN region, the RHS EN region, the continuous upper side EN region, the continuous lower side EN region, the discontinuous upper side EN region and the discontinuous lower side EN region. Similar to Theorem 1, the above regions are symmetric. We only consider three cases to calcute the EN region around a bidirectional FD link $l_i$.
+
+\emph{Case 1}: Consider the transmitter $T_j$ locates in the LHS EN region denoted by $A_{E1}$ as shown in Fig. \ref{proof_MRR} (a). If the associated receiver $R_j$ lies outside the bicircle interference region of $l_i$ (green arc), the exposed-node problem will occur. Otherwise, $R_j$ is interfered by $l_i$. Since $R_j$ is randomly distributed around $T_j$ with a distance $d$, the probability of $R_j$ lying outside the bicircle interference region of $l_i$ is the ratio of $2\pi - 2\theta_1$ to $2\pi$. Clearly, the probability $p(X)$ depends on the location of $T_j$. Thus, we integrate the probability throughout the $A_{E1}$ region to obtain the exposed-node mean reuse region ($V_{EN1}$ in Theorem 2). The symmetric EN region at the right-hand side can be calculated in the same way.
+	
+\emph{Case 2:} In Fig. \ref{proof_MRR} (b), $T_j$ is inside the circle with the upper intersection of the two interference circles as the center and $\delta_3$ as the radius. Symmetrically, there is a region at the bottom that is the same as $V_{EN2}$.
+	
+\emph{Case 3:} In Fig. \ref{proof_MRR} (c), there is a discontinuous symmetric region that the EN problem may exist. In this case, we can only calculate the half part because the other half can be obtained by symmetry. Besides, the corresponding lower region is similar to $V_{EN3}$.
+\end{proof}
+
+\end{appendices} 
+\end{document}
